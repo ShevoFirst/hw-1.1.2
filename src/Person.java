@@ -1,4 +1,4 @@
-public class Person {//Задание 2.
+public class Person {//Задание 2...
     int yearOfBirth;
     String name;
     String town;

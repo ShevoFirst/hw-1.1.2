@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {//Задание 1-2.
+    public static void main(String[] args) {//Задание 1-2...
         Person maxim = new Person(1988,"Максим","Минск","бренд-менеджер");
         Person anna = new Person(1993,"Аня","Москва","методист образовательных программ");
         Person katya = new Person(1992,"Катя","Калининград","продакт-менеджер");
