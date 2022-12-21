@@ -1,3 +1,4 @@
+import transport.Bus;
 import transport.Car;
 
 import java.time.MonthDay;
@@ -34,5 +35,9 @@ public class Main {
         sportage.setInsurance(sportageIns);
         System.out.println(sportage.getInsurance().getNumIns());
         sportageIns.checkValyditi();
+
+        Bus ikarus = new Bus("Икарус","435",1985,"Венгрия","");
+        Bus toyota = new Bus("Toyota","Coaster",2017,"Япония","Синий");
+        Bus ford = new Bus("Ford","Torneo",2015,"Америка","Черный");
     }
 }

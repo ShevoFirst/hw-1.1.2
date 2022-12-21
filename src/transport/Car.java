@@ -3,13 +3,9 @@ package transport;
 import java.time.MonthDay;
 import java.time.YearMonth;
 
-public class Car {//32
-    private final String brand;
-    private final String model;
-    private String color;
-    private final String country;
+public class Car extends transport {//32
+
     private final double engineValue;
-    private final int year;
     private String transmission;
     private final String body;
     private String regNum;
@@ -68,7 +64,10 @@ public class Car {//32
             return numIns;
         }
     }
+
     public Car(String brand, String model, String color, String country, double engineValue, int year, String transmission, String body, String regNum, int countOfPlace) {
+        super(brand, model, year, country,color);
+
         if (transmission.isEmpty() || transmission == null){
             this.transmission = "defould";
         }else this.transmission = transmission;
@@ -79,7 +78,7 @@ public class Car {//32
 
         this.winterRubber = changeRubber();
 
-        if (checkNum(regNum)){
+        if (!checkNum(regNum)){
             this.regNum = "defould";
         }else this.regNum = regNum;
 
@@ -87,30 +86,9 @@ public class Car {//32
             this.body = "defould";
         }else this.body = body;
 
-        if (brand == null || brand.isEmpty()) {
-            this.brand = "defoult";
-        }else this.brand = brand;
-
-        if (model == null || model.isEmpty()) {
-            this.model = "defoult";
-        }else this.model = model;
-
-        this.color = color;
-        if (color == null || color.isEmpty()) {
-            this.color = "белый";
-        }
-
-        if (country == null || country.isEmpty()) {
-            this.country = "defoult";
-        }else this.country = country;
-
         if (engineValue <= 0) {
             this.engineValue = 1.5;
         }else this.engineValue = engineValue;
-
-        if (year <=0) {
-            this.year = 2000;
-        }else this.year = year;
         System.out.println(toString());
     }
     private boolean checkNum(String regNum){
@@ -147,29 +125,13 @@ public class Car {//32
         return winterRubber;
     }
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public String getModel() {
-        return model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getCountry() {
-        return country;
-    }
 
     public double getEngineValue() {
         return engineValue;
     }
 
-    public int getYear() {
-        return year;
-    }
+
 
     public String getTransmission() {
         return transmission;
@@ -193,8 +155,8 @@ public class Car {//32
 
     @Override
     public String toString() {
-        return brand+" "+model+", "+year+" год выпуска, сборка - "
-               + country+", "+color+" цвет, объем двигателся - "+engineValue+" л."+
+        return getBrand()+" "+getModel()+", "+getYear()+" год выпуска, сборка - "
+               + getCountry()+", "+getColor()+" цвет, объем двигателся - "+engineValue+" л."+
                 "кузов: "+ body + ".Регистрационный номер: "+regNum +".Трансмиссия "+ transmission
                 + ". Наличие зимней резины: "+ winterRubber + ".количество мест: " + countOfPlace ;
     }
